@@ -85,7 +85,7 @@ const createWindow = async () => {
                 {
                     label: 'Hide Others',
                     accelerator: 'CmdOrCtrl+Shift+H',
-                    role: 'hideOtherApplications'
+                    role: 'hideOthers'
                 },
                 {
                     label: 'Show All',
@@ -106,6 +106,18 @@ const createWindow = async () => {
         {
             label: 'Edit',
             submenu: [
+                {
+                    label: 'Send request',
+                    accelerator: 'CmdOrCtrl+Enter',
+                    click() {
+                        if (win) {
+                            win.webContents.send('submitRequest');
+                        }
+                    }
+                },
+                {
+                    type: 'separator'
+                },
                 {
                     label: 'Undo',
                     accelerator: 'CmdOrCtrl+Z',
@@ -137,7 +149,7 @@ const createWindow = async () => {
                 {
                     label: 'Select All',
                     accelerator: 'CmdOrCtrl+A',
-                    role: 'selectall'
+                    role: 'selectAll'
                 },
             ]
         },
