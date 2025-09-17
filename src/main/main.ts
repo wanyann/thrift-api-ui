@@ -89,7 +89,7 @@ const createWindow = async () => {
                 },
                 {
                     label: 'Show All',
-                    role: 'unhideAllApplications'
+                    role: 'unhide'
                 },
                 {
                     type: 'separator'
