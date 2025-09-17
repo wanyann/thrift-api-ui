@@ -55,8 +55,8 @@
     }
   },
   "build": {
-    "productName": "Thrift API UI",
-    "appId": "ru.alfabank.thrift-ui",
+    "productName": "Thrift API UI dev",
+    "appId": "ru.alfabank.thrift-ui-dev",
     "mac": {
       "category": "public.app-category.developer-tools",
       "hardenedRuntime": false,
