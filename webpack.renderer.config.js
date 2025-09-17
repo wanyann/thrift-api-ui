@@ -70,7 +70,11 @@ module.exports = merge.smart(baseConfig, {
         new webpack.NormalModuleReplacementPlugin(
             /bufrw\/lib\/can-require\.js/, require.resolve('./lib/bufrw-fix')
         ),
-        new MonacoWebpackPlugin(),
+        new MonacoWebpackPlugin({
+          features: [
+            '!accessibilityHelp'
+          ]
+        }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
         })
