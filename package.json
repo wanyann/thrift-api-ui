@@ -112,7 +112,7 @@
     "lint-staged": "^8.1.7",
     "monaco-editor-webpack-plugin": "^1.7.0",
     "sass": "^1.72.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
     "react-hot-loader": "^4.8.8",
     "react-test-renderer": "^16.8.6",
     "redux-devtools-extension": "^2.13.5",
