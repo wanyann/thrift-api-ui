@@ -138,7 +138,7 @@
     "bufrw": "^1.2.1",
     "hexer": "^1.5.0",
     "long": "^4.0.0",
-    "monaco-editor": "^0.36.0",
+    "monaco-editor": "^0.44.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-monaco-editor": "^0.43.0",
