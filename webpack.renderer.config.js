@@ -114,7 +114,8 @@ module.exports = merge.smart(baseConfig, {
               '!viewportSemanticTokens',
               '!wordHighlighter',
               '!wordOperations',
-              '!wordPartOperations'   
+              '!wordPartOperations',
+              '!coreCommands'
           ]
         }),
         new webpack.DefinePlugin({
