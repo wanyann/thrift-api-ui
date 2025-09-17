@@ -36,6 +36,26 @@ module.exports = merge.smart(baseConfig, {
                 }
             },
             {
+              test: /\.js$/,
+              include: [
+                path.resolve(__dirname, 'node_modules/monaco-editor'),
+                path.resolve(__dirname, 'node_modules/react-monaco-editor')
+              ],
+              use: {
+                loader: 'babel-loader',
+                options: {
+                  // мы явно указываем presets/plugins только для этого правила — безопасно
+                  presets: [
+                    ['@babel/preset-env', { targets: { browsers: ['last 2 versions', 'Safari >= 10'] }, modules: false }]
+                  ],
+                  plugins: [
+                    '@babel/plugin-syntax-dynamic-import'
+                  ],
+                  cacheDirectory: true
+                }
+              }
+            },
+            {
                 test: /\.css$/,
                 loaders: ['style-loader', 'css-loader']
             },
@@ -53,9 +73,13 @@ module.exports = merge.smart(baseConfig, {
             },
             // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
             {
-                enforce: 'pre',
-                test: /\.js$/,
-                loader: 'source-map-loader'
+              enforce: 'pre',
+              test: /\.js$/,
+              loader: 'source-map-loader',
+              exclude: [
+                /node_modules\/monaco-editor/, // <-- исключаем monaco
+                /node_modules\/react-monaco-editor/
+              ]
             }
         ]
     },
