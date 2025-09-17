@@ -61,7 +61,7 @@
       "category": "public.app-category.developer-tools",
       "hardenedRuntime": false,
       "sign": false
-    }
+    },
     "directories": {
       "output": "release"
     },
