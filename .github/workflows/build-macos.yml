@@ -28,6 +28,7 @@ jobs:
 
       - name: Build dmg
         run: |
+          export NODE_OPTIONS=--openssl-legacy-provider
           npm run dist
 
       - name: Upload artifact
