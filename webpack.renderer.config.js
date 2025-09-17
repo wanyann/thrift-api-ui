@@ -74,7 +74,8 @@ module.exports = merge.smart(baseConfig, {
           features: [
             '!accessibilityHelp', 
             '!anchorSelect',
-            '!bracketMatching'    
+            '!bracketMatching',
+            '!caretOperations'    
           ]
         }),
         new webpack.DefinePlugin({
