@@ -1,7 +1,7 @@
 {
-  "name": "thrift-api-ui",
+  "name": "thrift-api-ui-dev",
   "version": "2.7.0",
-  "productName": "Thrift API UI",
+  "productName": "Thrift API UI dev",
   "author": {
     "name": "Aleksandr Kitov",
     "email": "kitov.nn@gmail.com"
