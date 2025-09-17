@@ -73,7 +73,8 @@ module.exports = merge.smart(baseConfig, {
         new MonacoWebpackPlugin({
           features: [
             '!accessibilityHelp', 
-            '!anchorSelect'
+            '!anchorSelect',
+            '!bracketMatching'    
           ]
         }),
         new webpack.DefinePlugin({
