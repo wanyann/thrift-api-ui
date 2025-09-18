@@ -1,9 +1,6 @@
 name: Build macOS app
 
-on:
-  push:
-    branches: [ main, fix/m1-arm64 ]
-  workflow_dispatch:
+on: [push, pull_request, workflow_dispatch]
 
 jobs:
   build-macos:
