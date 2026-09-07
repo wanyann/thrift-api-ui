@@ -1,5 +1,5 @@
 import { ParsedService, ProgramAst } from 'thriftrw';
-import { remote } from 'electron';
+import { dialog } from '@electron/remote';
 import { ActionsUnion, AppThunkAction } from '../utils/actionsUnion';
 import { parseAllThriftFilesFromDirectory } from '../thrift/parseAllThriftFilesFromDirectory';
 import { endpointSelector, selectedMethodSelector } from '../selectors/editor';
@@ -135,7 +135,7 @@ export function onEndpointEditFinished(): SettingsThunkAction {
 
 export function showSelectThriftPathDialog(): SettingsThunkAction {
     return (dispatch) => {
-        const path = remote.dialog.showOpenDialog({
+        const path = dialog.showOpenDialogSync({
             properties: ['openDirectory'],
             title: 'Choose path to thrift sources'
         });

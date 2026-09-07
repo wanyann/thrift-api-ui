@@ -1,6 +1,7 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
-import { ipcRenderer, remote } from 'electron';
+import { ipcRenderer } from 'electron';
+import { app } from '@electron/remote';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { Layout } from '../components/Layout';
 import { setThriftSource, showSelectThriftPathDialog, showSettings, setVersion } from '../actions/settings';
@@ -20,7 +21,7 @@ export const Application = hot(() => {
     const isThriftLoading = useSelector(isThriftParsingInProgressSelector);
 
     useOnMount(() => {
-        dispatch(setVersion(remote.app.getVersion()));
+        dispatch(setVersion(app.getVersion()));
 
         if (thriftSrcPath) {
             dispatch(setThriftSource(thriftSrcPath));

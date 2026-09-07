@@ -1,11 +1,23 @@
 import { app, BrowserWindow, Menu, MenuItemConstructorOptions } from 'electron';
 import path from 'path';
 import url from 'url';
+import * as remoteMain from '@electron/remote/main';
 
 let win: BrowserWindow | null;
 
-const createWindow = async () => {
-    win = new BrowserWindow({ width: 1000, height: 850 });
+remoteMain.initialize();
+
+const createWindow = () => {
+    win = new BrowserWindow({
+        width: 1000,
+        height: 850,
+        webPreferences: {
+            nodeIntegration: true,
+            contextIsolation: false,
+            sandbox: false
+        }
+    });
+    remoteMain.enable(win.webContents);
 
     if (process.env.NODE_ENV !== 'production') {
         process.env.ELECTRON_DISABLE_SECURITY_WARNINGS = '1';
@@ -85,11 +97,11 @@ const createWindow = async () => {
                 {
                     label: 'Hide Others',
                     accelerator: 'CmdOrCtrl+Shift+H',
-                    role: 'hideOtherApplications'
+                    role: 'hideOthers'
                 },
                 {
                     label: 'Show All',
-                    role: 'unhideAllApplications'
+                    role: 'unhide'
                 },
                 {
                     type: 'separator'
@@ -137,7 +149,7 @@ const createWindow = async () => {
                 {
                     label: 'Select All',
                     accelerator: 'CmdOrCtrl+A',
-                    role: 'selectall'
+                    role: 'selectAll'
                 },
             ]
         },
