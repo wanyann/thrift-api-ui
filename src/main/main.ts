@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Menu, MenuItemConstructorOptions } from 'electron';
+import { app, BrowserWindow, Menu, MenuItemConstructorOptions, session } from 'electron';
 import path from 'path';
 import url from 'url';
 import * as remoteMain from '@electron/remote/main';
@@ -6,6 +6,12 @@ import * as remoteMain from '@electron/remote/main';
 let win: BrowserWindow | null;
 
 remoteMain.initialize();
+
+app.whenReady().then(() => {
+    session.defaultSession.setPermissionRequestHandler((webContents, permission, callback) => {
+        callback(permission === 'clipboard-read' || permission === 'clipboard-sanitized-write');
+    });
+});
 
 const createWindow = () => {
     win = new BrowserWindow({
